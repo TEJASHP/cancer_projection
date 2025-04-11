@@ -1,0 +1,600 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>data.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="id_code" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" />
+            <Field name="sex" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" />
+            <Field name="cancer_code" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" />
+            <Field name="age" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" />
+            <Field name="cases" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" />
+            <Field name="py" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" />
+            <Field name="year" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\3-COUNTRY_ID.xlsx|||`3-COUNTRY_ID$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>3-COUNTRY_ID.xlsx
+Query=`3-COUNTRY_ID$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="COUNTRY_NAME" size="255" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\3-COUNTRY_ID.xlsx|||`3-COUNTRY_ID$`" type="V_String" />
+            <Field name="C-15_COUNTRY_CODE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\3-COUNTRY_ID.xlsx|||`3-COUNTRY_ID$`" type="Double" />
+            <Field name="COUNTRY_CODE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\3-COUNTRY_ID.xlsx|||`3-COUNTRY_ID$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="222" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="id_code" selected="True" rename="ID_CODE" type="Int64" size="8" />
+            <SelectField field="sex" selected="True" rename="GENDER" />
+            <SelectField field="cancer_code" selected="True" rename="CANCER_ID" type="Int64" size="8" />
+            <SelectField field="age" selected="True" rename="AGE_ID" type="Int64" size="8" />
+            <SelectField field="cases" selected="True" rename="CASE" type="Int64" size="8" />
+            <SelectField field="py" selected="True" rename="PERSON_YEAR_AT_RISK" type="Int64" size="8" />
+            <SelectField field="year" selected="True" rename="YEAR" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="630" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[AGE_ID] != 19 AND [CANCER_ID]!= 1 AND [YEAR]&gt;="2000"</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[AGE_ID] != 19 AND [CANCER_ID]!= 1 AND [YEAR]&gt;="2000"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\1-AGE.xlsx|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>1-AGE.xlsx
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="AGE ID " source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\1-AGE.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="AGE RANGE" size="255" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\1-AGE.xlsx|||`Sheet1$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="222" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="AGE ID " selected="True" type="Int32" size="4" />
+            <SelectField field="AGE RANGE" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="390" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>!=</Operator>
+            <Field><![CDATA[AGE ID ]]></Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2025-04-10 00:19:25</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>19</Operand>
+              <StartDate>2025-04-10 00:19:25</StartDate>
+              <EndDate>2025-04-10 00:19:25</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[AGE ID ] != 19</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="390" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF 1 THEN &quot;MALE&quot; ELSE &quot;FEMALE&quot; ENDIF" field="GENDER" size="254" type="V_String" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[GENDER = IF 1 THEN "MALE" ELSE "FEMALE" ENDIF
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="702" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="AGE_ID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="AGE ID " />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_ID_CODE" selected="True" input="Left_" />
+                <SelectField field="Left_GENDER" selected="True" input="Left_" />
+                <SelectField field="Left_CANCER_ID" selected="True" input="Left_" />
+                <SelectField field="Left_CASE" selected="True" input="Left_" />
+                <SelectField field="Left_PERSON_YEAR_AT_RISK" selected="True" input="Left_" />
+                <SelectField field="Left_YEAR" selected="True" input="Left_" />
+                <SelectField field="Right_AGE RANGE" selected="True" input="Right_" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="234" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="COUNTRY_NAME" selected="True" />
+            <SelectField field="C-15_COUNTRY_CODE" selected="True" type="Int32" size="4" />
+            <SelectField field="COUNTRY_CODE" selected="True" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="810" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <AutoResetMode>Custom</AutoResetMode>
+          <MultiMetaInfo>
+            <MetaInfo name="#1">
+              <RecordInfo>
+                <Field name="ID_CODE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="1" />
+                <Field name="GENDER" size="254" source="Formula: IF 1 THEN &quot;MALE&quot; ELSE &quot;FEMALE&quot; ENDIF" type="V_String" column="2" />
+                <Field name="CANCER_ID" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="3" />
+                <Field name="CASE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="4" />
+                <Field name="PERSON_YEAR_AT_RISK" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="5" />
+                <Field name="YEAR" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" column="6" />
+                <Field name="AGE RANGE" size="255" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\1-AGE.xlsx|||`Sheet1$`" type="V_String" column="7" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#2">
+              <RecordInfo>
+                <Field name="ID_CODE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="1" />
+                <Field name="GENDER" size="254" source="Formula: IF 1 THEN &quot;MALE&quot; ELSE &quot;FEMALE&quot; ENDIF" type="V_String" column="2" />
+                <Field name="CANCER_ID" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="3" />
+                <Field name="CASE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="4" />
+                <Field name="PERSON_YEAR_AT_RISK" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="5" />
+                <Field name="YEAR" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" column="6" />
+                <Field name="AGE_ID" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="8" />
+              </RecordInfo>
+            </MetaInfo>
+          </MultiMetaInfo>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>Manual</Mode>
+          <SetOutputOrder value="True" />
+          <OutputOrder>
+            <Connection>#1</Connection>
+            <Connection>#2</Connection>
+          </OutputOrder>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="858" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="ID_CODE" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="C-15_COUNTRY_CODE" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_COUNTRY_NAME" selected="False" input="Right_" />
+                <SelectField field="Right_C-15_COUNTRY_CODE" selected="False" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="990" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <AutoResetMode>ByName</AutoResetMode>
+          <MultiMetaInfo>
+            <MetaInfo name="#1">
+              <RecordInfo>
+                <Field name="ID_CODE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="1" />
+                <Field name="GENDER" size="254" source="Formula: IF 1 THEN &quot;MALE&quot; ELSE &quot;FEMALE&quot; ENDIF" type="V_String" column="2" />
+                <Field name="CANCER_ID" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="3" />
+                <Field name="CASE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="4" />
+                <Field name="PERSON_YEAR_AT_RISK" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="5" />
+                <Field name="YEAR" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" column="6" />
+                <Field name="AGE RANGE" size="255" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\1-AGE.xlsx|||`Sheet1$`" type="V_String" column="7" />
+                <Field name="AGE_ID" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="8" />
+                <Field name="COUNTRY_CODE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\3-COUNTRY_ID.xlsx|||`3-COUNTRY_ID$`" type="Int32" column="9" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#2">
+              <RecordInfo>
+                <Field name="ID_CODE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="1" />
+                <Field name="GENDER" size="254" source="Formula: IF 1 THEN &quot;MALE&quot; ELSE &quot;FEMALE&quot; ENDIF" type="V_String" column="2" />
+                <Field name="CANCER_ID" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="3" />
+                <Field name="CASE" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="4" />
+                <Field name="PERSON_YEAR_AT_RISK" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="5" />
+                <Field name="YEAR" size="254" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="V_String" column="6" />
+                <Field name="AGE RANGE" size="255" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\health\1-AGE.xlsx|||`Sheet1$`" type="V_String" column="7" />
+                <Field name="AGE_ID" source="File: C:\Users\TEJAS\OneDrive\Desktop\health_data_report\CI5plus_Summary\data.csv" type="Int64" column="8" />
+              </RecordInfo>
+            </MetaInfo>
+          </MultiMetaInfo>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ManualDelayed</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings>
+        <Position x="1086" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"ID_CODE","GENDER","CANCER_ID","CASE","PERSON_YEAR_AT_RISK","YEAR","AGE RANGE","AGE_ID","C-15_COUNTRY_CODE","COUNTRY_CODE"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="486" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Switch([ID_CODE],[ID_CODE],17000299,17000199)" field="ID_CODE" size="8" type="Int64" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[ID_CODE = Switch([ID_CODE],[ID_CODE],17000299,17000199)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1134" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\TEJAS\AppData\Local\Temp\Alteryx\Engine_8044_91c0bab8d0ba4137aa7a997418041eeb_\Engine_8044_9ecbded33dd74fff904d639354e4e9bd~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="True" />
+      <Destination ToolID="30" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="True" />
+      <Destination ToolID="30" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="30" Connection="Join" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="30" Connection="Left" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="41" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="41" Connection="Left" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="41" Connection="Join" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="41" Connection="Left" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="43" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>CANCER_DATA</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="5d0859e3-654d-49d0-9270-51bcbb16dc8b" />
+      <Telemetry>
+        <PreviousWorkflowId value="d9a5e035-7a97-42a8-bd5f-28484cb9f06b" />
+        <OriginWorkflowId value="d9a5e035-7a97-42a8-bd5f-28484cb9f06b" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
